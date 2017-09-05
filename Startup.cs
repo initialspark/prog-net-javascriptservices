@@ -23,11 +23,6 @@ namespace prog_net_javascriptservices
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddNodeServices(options =>
-            {
-                options.LaunchWithDebugging = true;
-                options.DebuggingPort = 6060;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,10 +31,6 @@ namespace prog_net_javascriptservices
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
             }
             else
             {

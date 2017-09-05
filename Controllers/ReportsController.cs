@@ -10,15 +10,9 @@ namespace Demo.Controllers
     public class ReportsController : Controller
     {
         [HttpGet("sales")]
-        public async Task<IActionResult> Sales([FromServices] INodeServices nodeServices, [FromServices] IHostingEnvironment hostingEnvironment)
+        public async Task<IActionResult> Sales()
         {
-            var reportPath = hostingEnvironment.WebRootFileProvider.GetFileInfo("html/report.html");
-            
-            var options = new { format = "Letter" };            
-            var data = new {html = System.IO.File.ReadAllText(reportPath.PhysicalPath)};
-
-            var result = await nodeServices.InvokeAsync<Stream>("generatePdfReport.js",options,data);
-            return  File(result, "application/pdf");
+            return Content("Nothing here to see :)");
         }
     }
 }
