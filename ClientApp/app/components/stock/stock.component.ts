@@ -10,7 +10,7 @@ export class StockComponent {
     public beersStock: BeerStock[];
 
     constructor(http: Http) {
-        http.get('http://localhost:60971/api/beers').subscribe(result => {
+        http.get('http://localhost:5050/api/beers').subscribe(result => {
             this.beersStock = result.json() as BeerStock[];
         });
     }
